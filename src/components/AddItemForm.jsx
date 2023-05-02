@@ -1,12 +1,12 @@
 // import React from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const AddItemForm = () => {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
         const {name, price, quantity, status} = e.target;
-        const res = status.value==="N"
+        const res = status.value!=="N"
         if(!name || !price) return alert("name and price are required");
         try {
             await fetch('http://localhost:3500/fooditems/add',{
@@ -18,7 +18,7 @@ const AddItemForm = () => {
                     "name": name.value,
                     "price":price.value,
                     "quantity": quantity.value?quantity.value:"1 plate",
-                    "vegStatus":res
+                    "vgStatus":res
                 })
             })
             console.log(`${name.value} ${res} has been added`);

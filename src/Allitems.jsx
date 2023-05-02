@@ -25,14 +25,14 @@ const Allitems = ({data}) => {
     
     return(
             <div className="data">
+                <button onClick={()=>showVeg()}>Show Only Veg</button>
+                <button onClick={()=>showNonVeg()}>Show Only Non-Veg</button>
+                <button onClick={()=>showAll()}>Show All</button>
                 <ul>
                     {items.map(item=>(
                         <li key={item._id}>{item.name} {item.quantity} {item.price}</li>
                     ))}
                 </ul>
-                <button onClick={()=>showVeg()}>Show Only Veg</button>
-                <button onClick={()=>showNonVeg()}>Show Only Non-Veg</button>
-                <button onClick={()=>showAll()}>Show All</button>
             </div>
         );
 };
